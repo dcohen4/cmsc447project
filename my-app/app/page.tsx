@@ -13,8 +13,8 @@ export default function Home() {
      <div style={{ display: 'flex', justifyContent: 'right', alignItems: 'flex-end',height: '25vh'  }}>
       <AddTask></AddTask>
      </div>
-     {/* <AddTask></AddTask> */}
-     {/* <TodoList></TodoList> */}
+     <AddTask></AddTask> 
+      <TodoList></TodoList>
     </main>
   )
 }
