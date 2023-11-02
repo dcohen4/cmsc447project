@@ -1,8 +1,17 @@
+import { getAllTodos } from "@/api";
 import AddTask from "@/components/AddTask";
 import { TodoList } from "@/components/TodoList";
 
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await getAllTodos(); 
+  // console.log(tasks.at(1)?.taskname);
+
+    // Add this code to log the tasknames
+    tasks.forEach((task) => {
+      console.log(task);
+    }); 
+ 
   return (
     <main className="max-w-4xl mx-auto mt-15"> 
      <div className="text-left my-10 ">
@@ -13,8 +22,7 @@ export default function Home() {
      <div style={{ display: 'flex', justifyContent: 'right', alignItems: 'flex-end',height: '25vh'  }}>
       <AddTask></AddTask>
      </div>
-     {/* <AddTask></AddTask> */}
-     <TodoList></TodoList>
+     <TodoList tasks = {tasks}/>
     </main>
   )
 }

@@ -1,6 +1,12 @@
+import { ITask } from '@/types/types'
 import React from 'react'
 
-export const TodoList = () => {
+
+interface TodoListProps{
+  tasks:ITask[]
+}
+
+export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
   return (
     <div className="overflow-x-auto">
   <table className="table">
@@ -14,14 +20,21 @@ export const TodoList = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td><input type="checkbox" className="checkbox" disabled checked /></td>
-      </tr>
+      {tasks.map(task =>(
+      <tr key = {task.id}>
+        <th>{task.id}</th>
+        <td>{task.taskname}</td>
+        <td>{task.text}</td>
+        <td> {task.priority ? (<input type="checkbox" className="checkbox" disabled />) : null}</td>
       
+       
+        
+        
+        {/* <td><input type="checkbox" className="checkbox" disabled checked={!!task.priority} /></td> */}
+
+        
+      </tr>
+      ))}
     </tbody>
   </table>
 </div>
