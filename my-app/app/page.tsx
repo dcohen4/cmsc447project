@@ -1,7 +1,9 @@
 import { getAllTodos } from "@/api";
-import Accept from "@/components/Accept";
-import AddTask from "@/components/AddTask";
 import { TodoList } from "@/components/TodoList";
+import DeleteTask from "@/components/DeleteTask"
+import AddTask from "@/components/AddTask";
+import EditTask from "@/components/EditTask";
+import ViewTask from "@/components/ViewTask";
 
 
 export default async function Home() {
@@ -24,7 +26,10 @@ export default async function Home() {
           </div>
           <div style={{ flex: 1, marginLeft: '100px' }}>
             
+            <ViewTask></ViewTask>
             <AddTask></AddTask>
+            <EditTask></EditTask>
+            <DeleteTask></DeleteTask>
           </div>
         </div>
         

@@ -5,7 +5,7 @@ const Accept = () => {
 
   return (
     <div>
-      <button className='btn btn-primary w-full'> Accept</button>
+      <button className='btn btn-primary w-full'> Submit</button>
     
     </div>
   )

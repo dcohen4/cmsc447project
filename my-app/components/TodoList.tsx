@@ -16,7 +16,7 @@ export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
       <tr>
         <th></th>
         <th>Task Name</th>
-        <th> Task</th>
+        <th>Task</th>
         <th>Priority</th>
       </tr>
     </thead>
