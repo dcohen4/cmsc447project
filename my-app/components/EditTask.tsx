@@ -10,7 +10,7 @@ const EditTask = () => {
 
   return (
     <div>
-      <button onClick={() => setModalOpen(true)} className='relative fixed top-0 left-0 btn hover:bg-blue-900 w-48 h-48 px-12 py-12 border-radius-100 mb-4'>
+      <button onClick={() => setModalOpen(true)} className='btn hover:bg-slate-800 w-48 h-48 px-12 py-12 border-radius-100 mb-4 shadow-lg rounded-3xl border-black border-2'>
       <BiSolidCalendarEdit className='' size={75} />
     </button>
     <Modal modalOpen = {modalOpen} setModalOpen = {setModalOpen} />

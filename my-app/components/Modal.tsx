@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
 
   return (
     <div className={`modal ${modalOpen ? "modal-open" : ""}`}>
-      <div className="modal-box" ref={modalRef}>
+      <div className="modal-box animate-flip-up animate-once animate-ease-in" ref={modalRef}>
         <form method="dialog">
           {/* if there is a button in form, it will close the modal */}
           <label

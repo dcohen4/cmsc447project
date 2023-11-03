@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
-        <h1 className="text-2xl font-bold">Task Management App</h1>
+        <h1 className="text-2xl font-bold text-lg font-bold infinite-scroll 25s linear infinite">Task Management App</h1>
 
       </div>
      
@@ -24,14 +24,17 @@ export default async function Home() {
           <div style={{ flex: 2, marginRight: '200px' }}>
           <TodoList tasks={tasks} />
           </div>
-          <div style={{ flex: 1, marginLeft: '100px' }}>
+          
+          
+          <div className = 'grid justify-evenly grid-cols-2 gap-16'>
             
-            <ViewTask></ViewTask>
             <AddTask></AddTask>
+            <ViewTask></ViewTask>
             <EditTask></EditTask>
             <DeleteTask></DeleteTask>
           </div>
         </div>
+       
         
       </div>
     </main>
