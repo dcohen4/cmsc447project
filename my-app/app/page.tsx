@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
-        <h1 className="text-2xl font-bold text-lg font-bold infinite-scroll 25s linear infinite">Task Management App</h1>
+        <h1 className="font-bold text-lg">Task Management App</h1>
 
       </div>
      

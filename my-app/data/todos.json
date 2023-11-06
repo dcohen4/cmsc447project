@@ -1,19 +1,25 @@
 {
   "tasks": [
-        {
-        "id": "1",
-        "taskname": "plans",
-        "text": "hang out with friends",
-        "priority": 1
-        },
-        {
-        "id": "2",
-        "taskname": "chores",
-        "text": "clean up the house",
-        "priority": 0
-
-        }
-    
+    {
+      "id": "1",
+      "taskname": "plans",
+      "text": "hang out with friends",
+      "priority": 1,
+      "date": "12/3/2023"
+    },
+    {
+      "id": "2",
+      "taskname": "chores",
+      "text": "clean up the house",
+      "priority": 0,
+      "date": "12/3/2023"
+    },
+    {
+      "id": "5",
+      "taskname": "go to market",
+      "text": "buy some eggs",
+      "priority": false,
+      "date": "2023-11-04"
+    }
   ]
-
 }

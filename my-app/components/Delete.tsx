@@ -5,7 +5,7 @@ const Delete = () => {
 
   return (
     <div>
-      <button className='btn btn-primary w-full'> Delete</button>
+      <button className='btn btn-primary w-full'> Cancel</button>
     
     </div>
   )
