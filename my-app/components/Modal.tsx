@@ -33,17 +33,16 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }) => {
   return (
     <div className={`modal ${modalOpen ? "modal-open" : ""}`}>
       <div className="modal-box animate-flip-up animate-once animate-ease-in" ref={modalRef}>
-       
-          {/* if there is a button in form, it will close the modal */}
-          <label
-            onClick={() => setModalOpen(false)}
-            className='btn btn-sm btn-circle absolute right-2 top-2'
-          >
-            ✕
-          </label>
-          {children}
-       
-   
+        {/* Close the modal when the cancel button is clicked */}
+        <label
+          onClick={() => setModalOpen(false)}
+          className='btn btn-sm btn-circle absolute right-2 top-2'
+        >
+          ✕
+        </label>
+        {children}
+        {/* Close the modal when the cancel button is clicked */}
+        <button onClick={() => setModalOpen(false)} className='btn btn-primary w-full'>cancel</button>
       </div>
     </div>
   );

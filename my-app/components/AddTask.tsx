@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Modal from "./Modal"
 import React, { FormEventHandler, useState } from 'react'
@@ -7,12 +7,13 @@ import Delete from "./Delete"
 import Accept from "./Accept"
 import { addTodo } from "@/api"
 import { useRouter } from "next/navigation";
+import { v4 as uuidv4} from 'uuid';
 
 const AddTask = () => {
 
   const router = useRouter();
   const initialTodo = {
-    id: "",
+    id: uuidv4(),
     taskname: "",
     text: "",
     priority: false,
@@ -30,7 +31,7 @@ const AddTask = () => {
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async(e) => {
     e.preventDefault();
     await addTodo({
-      id: "5",
+      id: "",
       taskname: newTaskName,
       text: newTask,
       priority: newPriority,
@@ -40,6 +41,7 @@ const AddTask = () => {
     setNewTask("");
     setNewDate("");
     setPriority(false);
+    setModalOpen(false);
     router.refresh();
   }
 
@@ -87,8 +89,8 @@ const AddTask = () => {
           </div>
 
           <div className=" content-evenly pt-6">
-            <Accept />
-            <Delete />
+            <button className='btn btn-primary w-full'> Submit</button>
+           
           </div>
 
         </form>
