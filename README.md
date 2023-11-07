@@ -14,6 +14,8 @@ npm i -D daisyui@latest
 
 npm install react-icons --save
 
+npm i --save-dev @types/uuid
+
 ---------------------------------------
 
 to run frontend:
