@@ -8,13 +8,15 @@ import ViewTask from "@/components/ViewTask";
 
 export default async function Home() {
   const tasks = await getAllTodos();
-  console.log(tasks);
-
+  
+  const currentDate = new Date();
+  const formattedDate = currentDate.toDateString();
+  
 
   return (
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
-        <h1 className="font-bold text-lg">Task Management App</h1>
+        <h1 className="font-bold text-lg">Task Management App: {formattedDate}</h1>
 
       </div>
      
@@ -30,8 +32,8 @@ export default async function Home() {
             
             <AddTask></AddTask>
             <ViewTask></ViewTask>
-            <EditTask></EditTask>
-            <DeleteTask></DeleteTask>
+            {/* <EditTask></EditTask>
+            <DeleteTask></DeleteTask> */}
           </div>
         </div>
        

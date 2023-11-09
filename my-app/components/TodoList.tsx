@@ -18,6 +18,7 @@ export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
         <th>Task Name</th>
         <th>Task</th>
         <th>Priority</th>
+        <th>Edit/Delete</th>
       </tr>
     </thead>
     <tbody className='bg-gray-700 border-gray-900 '>

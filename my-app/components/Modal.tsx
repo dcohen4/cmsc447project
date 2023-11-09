@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }) => {
         </label>
         {children}
         {/* Close the modal when the cancel button is clicked */}
-        <button onClick={() => setModalOpen(false)} className='btn btn-primary w-full'>cancel</button>
+        <button onClick={() => setModalOpen(false)} className='btn flex gap-5 btn-primary w-full'>cancel</button>
       </div>
     </div>
   );
