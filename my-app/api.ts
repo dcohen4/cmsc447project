@@ -40,3 +40,41 @@ export const addTodo = async (todo: ITask): Promise<ITask> => {
     throw error; // Re-throw the error to propagate it
   }
 }
+
+export const editTodo = async (todo: ITask): Promise<ITask> => {
+   try {
+     const res = await fetch(`${baseURL}/tasks/${todo.id}`, {
+       method: 'PUT',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(todo)
+     });
+ 
+     if (!res.ok) {
+       throw new Error(`HTTP error! Status: ${res.status}`);
+     }
+ 
+     const updatedTodo = await res.json();
+     return updatedTodo;
+   } catch (error) {
+     console.error('Error in addTodo:', error);
+     throw error; // Re-throw the error to propagate it
+   }
+ }
+
+ export const removeTodo = async (id: string): Promise<void> => {
+   try {
+     const res = await fetch(`${baseURL}/tasks/${id}`, {
+       method: 'DELETE',
+       
+     });
+ 
+   
+     
+   
+   } catch (error) {
+     console.error('Error in addTodo:', error);
+     throw error; // Re-throw the error to propagate it
+   }
+ }
