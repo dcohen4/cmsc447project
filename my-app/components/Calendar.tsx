@@ -5,17 +5,23 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
+
 function Calendar() {
   return (
-    <div >
-      <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin]}
-        initialView={"dayGridMonth"}
-        height={"60vh"}
-       
-        
+    // @ts-ignore
+    <FullCalendar
+      plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+      headerToolbar={{
+        left: 'prev,next today',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      }}
+      initialView={"dayGridMonth"}
+      editable={true}
+      selectable={true}
+      selectMirror={true}
+      dayMaxEvents={true}
+      //events={}
       />
-    </div>
   );
 }
 

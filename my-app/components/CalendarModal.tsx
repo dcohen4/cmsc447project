@@ -34,10 +34,6 @@ const CalendarModal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children
       <div className="modal-box animate-flip-up animate-once animate-ease-in " ref={modalRef}>
         {/* Close the modal when the cancel button is clicked */}
         
-        <div className="pb-6">  <label onClick={() => setModalOpen(false)}className='btn btn-sm btn-circle absolute right-2 top-2'>
-          ✕
-        </label></div>
-      
         <div className="pb-6">{children}</div>
         
         {/* Close the modal when the cancel button is clicked */}
