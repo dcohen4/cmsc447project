@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Accept from './Accept';
-import Delete from './Delete';
+
 
 interface ModalProps {
   modalOpen: boolean;
@@ -17,7 +16,7 @@ const ModalRemove: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         setModalOpen(false);
       }
-    };
+    }; 
 
     if (modalOpen) {
       document.addEventListener('mousedown', handleClickOutside);
