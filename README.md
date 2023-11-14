@@ -16,6 +16,11 @@ npm install react-icons --save
 
 npm i --save-dev @types/uuid
 
+npm install @fullcalendar/react @fullcalendar/daygrid
+
+npm install fullcalendar
+
+
 ---------------------------------------
 
 to run frontend:
