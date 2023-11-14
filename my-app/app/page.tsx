@@ -4,7 +4,10 @@ import DeleteTask from "@/components/DeleteTask"
 import AddTask from "@/components/AddTask";
 import EditTask from "@/components/EditTask";
 import ViewTask from "@/components/ViewTask";
-import Dateshifter from "@/components/dateshifter";
+import Dateshifter from "@/components/Dateshifter";
+import Calendar from "@/components/Calendar";
+
+
 
 
 
@@ -17,8 +20,8 @@ export default async function Home() {
 
   return (
     <main className="max-w-4xl mx-auto mt-15">
-
-   
+      
+    
       <div className="text-left my-10 ">
         <h1 className="font-bold text-lg">Task Management App: {formattedDate}</h1>
         <Dateshifter/>
