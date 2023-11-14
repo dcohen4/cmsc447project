@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Accept from './Accept';
-import Delete from './Delete';
+
 
 interface ModalProps {
   modalOpen: boolean;
