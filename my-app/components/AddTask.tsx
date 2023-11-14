@@ -109,7 +109,7 @@ const AddTask = () => {
             </div>
           </div>
           <div className=" content-evenly pt-6">
-            <button className={`btn btn-primary w-full`} disabled={isSubmitDisabled}>Submit</button>
+            <button className={`btn btn-primary w-full mb-2`} disabled={isSubmitDisabled}>Submit</button>
           </div>
         </form>
       </Modal>
