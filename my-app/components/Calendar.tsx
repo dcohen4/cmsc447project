@@ -1,28 +1,26 @@
-'use client'
-import React from "react";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
+import React from 'react';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
-
-function Calendar() {
-  return (
-    // @ts-ignore
-    <FullCalendar
-      plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
-      headerToolbar={{
-        left: 'prev,next today',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      }}
-      initialView={"dayGridMonth"}
-      editable={true}
-      selectable={true}
-      selectMirror={true}
-      dayMaxEvents={true}
-      //events={}
-      />
-  );
+interface CalendarProps {
+  onDateClick: () => void;
 }
+
+const Calendar: React.FC<CalendarProps> = ({ onDateClick }) => {
+  const handleDateClick = (arg: { dateStr: any; }) => {
+    console.log('Date clicked:', arg.dateStr);
+    onDateClick(); // Notify the parent component about the date click
+  };
+
+  return (
+    <FullCalendar
+      plugins={[dayGridPlugin, interactionPlugin]}
+      contentHeight={450}
+      selectable={true}
+      dateClick={handleDateClick}
+    />
+  );
+};
 
 export default Calendar;

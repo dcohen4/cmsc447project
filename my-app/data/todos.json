@@ -1,3 +1,11 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": 1,
+      "taskname": "new",
+      "text": "task",
+      "priority": true,
+      "date": "2023-11-14"
+    }
+  ]
 }
