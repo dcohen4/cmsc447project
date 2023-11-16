@@ -1,22 +1,13 @@
-#cmsc447project
-
-
-
-###Backend
+### Backend
 
 ```npm install -g json-server```
+```npm run json-server```
 
-###Frontend
+
+### Frontend
 
 ```npm install -D tailwindcss postcss autoprefixer daisyui@latest @fullcalendar/react @fullcalendar/daygrid fullcalendar @types/uuid react-icons```
+```npm run dev```
 
 
----------------------------------------
 
-to run frontend:
-
-npm run dev
-
-to run backend:
-
-npm run json-server
