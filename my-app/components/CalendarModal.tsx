@@ -27,7 +27,7 @@ const CalendarModal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
     };
   }, [modalOpen, setModalOpen]);
 
-  const handleDateClick = () => {
+  const onDateClick = () => {
     setModalOpen(false); // Close the modal when a date is clicked
   };
 
@@ -36,7 +36,7 @@ const CalendarModal: React.FC<ModalProps> = ({ modalOpen, setModalOpen }) => {
       <div className=" modal-box scale-100" ref={modalRef}>
         <div className="pb-6">
           {/* Pass the function to handle date click to the Calendar component */}
-          <Calendar  onDateClick={handleDateClick} />
+          <Calendar  onDateClick={onDateClick} />
         </div>
         <button onClick={() => setModalOpen(false)} className='btn flex gap-5 btn-primary'>Close</button>
       </div>
