@@ -9,6 +9,12 @@ import Dateshifter from "@/components/Dateshifter";
 
 
 export default async function Home() {
+
+  // loop through all of todos.json and call transferTodos on each, checking the date, and returning if the date == true
+  // while (todos.json != NULL) {
+          
+  //}
+
   const tasks = await getAllTodos();
   
   const currentDate = new Date();

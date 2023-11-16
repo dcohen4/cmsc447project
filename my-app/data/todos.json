@@ -1,3 +1,25 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": 1,
+      "taskname": "This",
+      "text": "Is a task",
+      "priority": false,
+      "date": "2023-11-15"
+    },
+    {
+      "id": 2,
+      "taskname": "sdkljfasd",
+      "text": "dadsfa",
+      "priority": false,
+      "date": "2023-11-15"
+    },
+    {
+      "id": 3,
+      "taskname": "asdfas",
+      "text": "dfasdf",
+      "priority": false,
+      "date": "2023-11-15"
+    }
+  ]
 }

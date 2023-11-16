@@ -21,21 +21,10 @@ export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
         <th scope="col" className="px-6 py-3">Edit/Delete</th>
       </tr>
     </thead>
-    <tbody className=''>
-    {tasks.length === 0 ? (
-      <tr className=' px-6 py-4 odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700'>
-      
-      <td  className="px-6 py-0"> Please</td>
-      <td  className="px-6 py-0"> Enter </td>
-      <td  className="px-6 py-0"> a </td>
-      <td  className="px-6 py-0"> new </td>
-      <td  className="px-6 py-4"> Task </td>
-      </tr>
-
-      
-  ) : (
-    tasks.map((task) => <Task key={task.id} task={task} />)
-   )} </tbody>
+    <tbody className='bg-gray-700 border-gray-900 '>
+      {tasks.map((task )=>(
+      <Task key ={task.id} task={task}/>))}
+    </tbody>
   </table>
 </div>
   );
