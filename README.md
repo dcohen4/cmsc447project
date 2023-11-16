@@ -2,23 +2,13 @@
 
 
 
+###Backend
 
+```npm install -g json-server```
 
-npm install -g json-server
+###Frontend
 
-for frontend. install these dependancies
-
-npm install -D tailwindcss postcss autoprefixer
-
-npm i -D daisyui@latest
-
-npm install react-icons --save
-
-npm i --save-dev @types/uuid
-
-npm install @fullcalendar/react @fullcalendar/daygrid
-
-npm install fullcalendar
+```npm install -D tailwindcss postcss autoprefixer daisyui@latest @fullcalendar/react @fullcalendar/daygrid fullcalendar @types/uuid react-icons```
 
 
 ---------------------------------------
