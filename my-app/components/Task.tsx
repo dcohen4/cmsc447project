@@ -111,6 +111,7 @@ const handleDeleteTask = async (id: string) => {
           </div>
         
       </ModalRemove>
+      
 
     </td>
     {/* <td><input type="checkbox" className="checkbox" disabled checked={!!task.priority} /></td> */}

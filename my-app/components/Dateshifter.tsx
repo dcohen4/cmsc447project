@@ -12,6 +12,7 @@ const Dateshifter = ({ onDateChange }: DateshifterProps) => {
   const updateDay = (newDay: Date) => {
     setCurrentDay(newDay);
     onDateChange(newDay); // Call the callback with the new date
+    
   };
 
   const incrementDay = () => {
@@ -29,9 +30,11 @@ const Dateshifter = ({ onDateChange }: DateshifterProps) => {
 
   return (
     <div>
-      <h1>Current Day: {currentDay.toDateString()}</h1>
-      <button onClick={decrementDay}>Previous Day</button>
-      <button onClick={incrementDay}>Next Day</button>
+      
+      <div className="flex space-x-8">
+      <button className = 'btn hover:bg-slate-800' onClick={decrementDay}>Previous Day</button>
+      <button className = 'btn hover:bg-slate-800' onClick={incrementDay}>Next Day</button>
+      </div>
     </div>
   );
 };

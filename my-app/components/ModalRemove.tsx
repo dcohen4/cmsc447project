@@ -16,6 +16,7 @@ const ModalRemove: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         setModalOpen(false);
       }
+      
     }; 
 
     if (modalOpen) {
@@ -39,6 +40,7 @@ const ModalRemove: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }
         >
           ✕
         </label>
+        
         {children}
         {/* Close the modal when the cancel button is clicked */}
        

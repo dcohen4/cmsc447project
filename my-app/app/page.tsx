@@ -32,14 +32,16 @@ export default function Home() {
   return (
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
-        <h1 className="font-bold text-lg">Task Management App: {selectedDate.toDateString()}</h1>
+       
         <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '25vh' }}>
         <h3 className="font-bold text-lg"></h3>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '150%', margin: '150px' }}>
+          
           <div className='mb-8' style={{ flex: 2, marginRight: '200px' }}>
+          <h1 className="font-bold text-lg">{selectedDate.toDateString()}</h1>
             <TodoList tasks={tasks} /> {/* Display only tasks for the selected date */}
           </div>
 
