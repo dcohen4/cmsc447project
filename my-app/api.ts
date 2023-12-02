@@ -5,76 +5,72 @@ const baseURL = 'http://localhost:3001';
 
 export const getAllTodos = async (): Promise<ITask[]> => {
   try {
-    const res = await fetch(`${baseURL}/tasks`, { cache: 'no-store' });
+    // Return tasks from local storage
+    return JSON.parse(localStorage.getItem('tasks')) || [];
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
-    }
-
-    const todos = await res.json();
-    return todos;
   } catch (error) {
     console.error('Error in getAllTodos:', error);
-    throw error; // Re-throw the error to propagate it
+    throw error; 
   }
 }
 
 export const addTodo = async (todo: ITask): Promise<ITask> => {
   try {
-    const res = await fetch(`${baseURL}/tasks`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(todo)
-    });
+    // Get existing tasks from local storage
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! Status: ${res.status}`);
-    }
+    // Add the new task to the array
+    tasks.push(todo);
 
-    const newTodo = await res.json();
-    return newTodo;
+    // Update local storage with the new tasks
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    return todo;
+
   } catch (error) {
     console.error('Error in addTodo:', error);
-    throw error; // Re-throw the error to propagate it
+    throw error;
   }
 }
 
 export const editTodo = async (todo: ITask): Promise<ITask> => {
-   try {
-     const res = await fetch(`${baseURL}/tasks/${todo.id}`, {
-       method: 'PUT',
-       headers: {
-         'Content-Type': 'application/json'
-       },
-       body: JSON.stringify(todo)
-     });
- 
-     if (!res.ok) {
-       throw new Error(`HTTP error! Status: ${res.status}`);
-     }
- 
-     const updatedTodo = await res.json();
-     return updatedTodo;
-   } catch (error) {
-     console.error('Error in addTodo:', error);
-     throw error; // Re-throw the error to propagate it
-   }
- }
+  try {
+    // Get existing tasks from local storage
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
- export const removeTodo = async (id: string): Promise<void> => {
-   try {
-     const res = await fetch(`${baseURL}/tasks/${id}`, {
-       method: 'DELETE',
-       
-     });
- 
-   
-     
-   
-   } catch (error) {
-     console.error('Error in addTodo:', error);
-     throw error; // Re-throw the error to propagate it
-   }
- }
+    // Find the index of the task to be edited
+    const index = tasks.findIndex((task) => task.id === todo.id);
+
+    // If the task is found, update it
+    if (index !== -1) {
+      tasks[index] = todo;
+
+      // Update local storage with the edited tasks
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    return todo;
+
+  } catch (error) {
+    console.error('Error in editTodo:', error);
+    throw error;
+  }
+}
+
+
+export const removeTodo = async (id: string): Promise<void> => {
+  try {
+    // Get existing tasks from local storage
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Filter out the task with the specified ID
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+
+    // Update local storage with the remaining tasks
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+
+  } catch (error) {
+    console.error('Error in removeTodo:', error);
+    throw error;
+  }
+}
