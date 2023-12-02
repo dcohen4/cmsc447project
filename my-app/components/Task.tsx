@@ -56,7 +56,7 @@ const handleDeleteTask = async (id: string) => {
  
   return (
     <tr key = {task.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{task.id}</th>
+    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
     <td className="px-6 py-4">{task.taskname}</td>
     <td className="px-6 py-4 ">{task.text}</td>
     <td className="px-9 py-4"> {task.priority ? (<input type="checkbox" className="checkbox" disabled checked />) : null}</td>
