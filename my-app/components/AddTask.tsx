@@ -52,7 +52,7 @@ const AddTask = () => {
     if (newTaskName && newTask && newDate) {
       // If all fields are filled, submit the form
       await addTodo({
-        id: "",
+        id: initialTodo.id,
         taskname: newTaskName,
         text: newTask,
         priority: newPriority,
