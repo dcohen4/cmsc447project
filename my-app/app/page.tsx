@@ -18,21 +18,24 @@ export default function Home() {
   useEffect(() => {
     const fetchTasks = async () => {
       const allTasks = await getAllTodos();
-
+      
       const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
       const filteredTasks = allTasks.filter(task => 
       formatDateOnly(new Date(task.date)) === formatDateOnly(selectedDate)
+      
 );
+    console.log(); 
       setTasks(filteredTasks);
     };
 
     fetchTasks();
   }, [selectedDate]);
 
+
   return (
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
-       
+      
         <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
       </div>
 

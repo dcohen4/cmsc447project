@@ -6,6 +6,9 @@ const baseURL = 'http://localhost:3001';
 export const getAllTodos = async (): Promise<ITask[]> => {
   try {
     // Return tasks from local storage
+
+    
+
     return JSON.parse(localStorage.getItem('tasks')) || [];
 
   } catch (error) {

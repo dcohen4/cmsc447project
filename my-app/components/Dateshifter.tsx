@@ -10,6 +10,7 @@ const Dateshifter = ({ onDateChange }: DateshifterProps) => {
   const [currentDay, setCurrentDay] = useState(new Date());
 
   const updateDay = (newDay: Date) => {
+
     setCurrentDay(newDay);
     onDateChange(newDay); // Call the callback with the new date
     

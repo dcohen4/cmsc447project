@@ -45,6 +45,7 @@ const Task: React.FC<Taskprops> = ({task}) => {
     setpriorityToEdit(false);
     setModalOpenEdit(false);
     router.refresh();
+    window.location.reload();
   
 }
 
@@ -52,6 +53,7 @@ const handleDeleteTask = async (id: string) => {
   await removeTodo(id);
   setModalOpenRemove(false);
   router.refresh();
+  window.location.reload();
 };
  
   return (

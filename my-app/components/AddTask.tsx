@@ -65,6 +65,7 @@ const AddTask = () => {
       setPriority(false);
       setModalOpen(false);
       router.refresh();
+      window.location.reload();
     }
   }
 
