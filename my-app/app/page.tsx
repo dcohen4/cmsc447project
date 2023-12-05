@@ -15,22 +15,36 @@ export default function Home() {
   // const [tasks, setTasks] = useState([]);
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const allTasks = await getAllTodos();
+//   useEffect(() => {
+//     const fetchTasks = async () => {
+//       const allTasks = await getAllTodos();
       
-      const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
-      const filteredTasks = allTasks.filter(task => 
-      formatDateOnly(new Date(task.date)) === formatDateOnly(selectedDate)
+//       const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
+//       const filteredTasks = allTasks.filter(task => 
+//       formatDateOnly(new Date(task.date)) === formatDateOnly(selectedDate)
       
-);
-    console.log(); 
-      setTasks(filteredTasks);
-    };
+// );
+//     console.log(); 
+//       setTasks(filteredTasks);
+//     };
 
-    fetchTasks();
-  }, [selectedDate]);
+//     fetchTasks();
+//   }, [selectedDate]);
 
+useEffect(() => {
+  const fetchTasks = async () => {
+    const allTasks = await getAllTodos();
+    
+    const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
+    const filteredTasks = allTasks.filter(task => 
+    formatDateOnly(new Date(task.date + 'T00:00:00Z')) === formatDateOnly(selectedDate)
+    );
+  
+    setTasks(filteredTasks);
+  };
+
+  fetchTasks();
+}, [selectedDate]);
 
   return (
     <main className="max-w-4xl mx-auto mt-15">
