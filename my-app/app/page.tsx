@@ -30,7 +30,7 @@ export default function Home() {
 
 //     fetchTasks();
 //   }, [selectedDate]);
-
+ 
 useEffect(() => {
   const fetchTasks = async () => {
     const allTasks = await getAllTodos();
@@ -42,7 +42,6 @@ useEffect(() => {
   
     setTasks(filteredTasks);
   };
-
   fetchTasks();
 }, [selectedDate]);
 
@@ -65,8 +64,8 @@ useEffect(() => {
           <div className='grid justify-evenly grid-cols-2 gap-16'>
             <AddTask></AddTask>
             <ViewTask></ViewTask>
-            {/* <EditTask></EditTask>
-                <DeleteTask></DeleteTask> */}
+            
+
           </div>
         </div>
       </div>
