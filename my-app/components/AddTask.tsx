@@ -28,6 +28,9 @@ const AddTask = () => {
   const [taskError, setTaskError] = useState<boolean>(false);
   const [dateError, setDateError] = useState<boolean>(false);
 
+  const MAX_CHARACTERS_TASK = 100;
+  const MAX_CHARACTERS_TASKNAME = 23;
+
   const isSubmitDisabled = !newTaskName || !newTask || !newDate; // Check if any of the required fields are empty
 
   const handleSubmitNewTodo: FormEventHandler<HTMLFormElement> = async (e) => {
@@ -69,6 +72,10 @@ const AddTask = () => {
     }
   }
 
+  // Function to calculate remaining characters
+  const remainingCharactersTask = MAX_CHARACTERS_TASK - newTask.length;
+  const remainingCharactersTaskName = MAX_CHARACTERS_TASKNAME - newTaskName.length;
+
   return (
     <div>
       <button onClick={() => setModalOpen(true)} className='btn hover-bg-slate-800 w-48 h-48 px-12 py-12 border-radius-100 mb-4 shadow-lg rounded-3xl border-black border-2'>
@@ -81,18 +88,38 @@ const AddTask = () => {
               <h3 className="font-bold text-lg mb-1">Please Enter Your Tasks</h3>
               <input
                 value={newTaskName}
-                onChange={(e) => setNewTaskName(e.target.value)}
+                onChange={(e) => {
+                  const text = e.target.value;
+                  if (text.length <= MAX_CHARACTERS_TASKNAME) {
+                    setNewTaskName(text);
+                  } else {
+                    setNewTaskName(text.slice(0, MAX_CHARACTERS_TASKNAME));
+                  }
+                }}
                 type="text"
                 placeholder="Enter Task Name"
                 className={`input input-bordered w-full max-w-xs mb-2 ${taskNameError ? 'error' : ''}`}
               />
+              <div className="pb-4" style={{ fontSize: '0.75rem', color: remainingCharactersTaskName < 0 ? 'red' : 'inherit' }}>
+                {remainingCharactersTaskName}/{MAX_CHARACTERS_TASKNAME} characters remaining
+              </div>
               <input
                 value={newTask}
-                onChange={(e) => setNewTask(e.target.value)}
+                onChange={(e) => {
+                  const text = e.target.value;
+                  if (text.length <= MAX_CHARACTERS_TASK) {
+                    setNewTask(text);
+                  } else {
+                    setNewTask(text.slice(0, MAX_CHARACTERS_TASK));
+                  }
+                }}
                 type="text"
                 placeholder="Notes"
                 className={`input input-bordered input-lg w-full max-w-xs mb-2 ${taskError ? 'error' : ''}`}
               />
+              <div className="pb-4" style={{ fontSize: '0.75rem', color: remainingCharactersTask < 0 ? 'red' : 'inherit' }}>
+                {remainingCharactersTask}/{MAX_CHARACTERS_TASK} characters remaining
+              </div>
               <input
                 value={newDate}
                 onChange={(e) => setNewDate(e.target.value)}

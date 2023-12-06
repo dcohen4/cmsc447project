@@ -49,10 +49,11 @@ useEffect(() => {
     <main className="max-w-4xl mx-auto mt-15">
       <div className="text-left my-10 ">
       
-        <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
+        
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '25vh' }}>
+      <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
         <h3 className="font-bold text-lg"></h3>
         <div style={{ display: 'flex', justifyContent: 'space-between', width: '150%', margin: '150px' }}>
           
@@ -61,7 +62,7 @@ useEffect(() => {
             <TodoList tasks={tasks} /> {/* Display only tasks for the selected date */}
           </div>
 
-          <div className='grid justify-evenly grid-cols-2 gap-16'>
+          <div className='grid justify-evenly grid-cols-2 gap-16 '>
             <AddTask></AddTask>
             <ViewTask></ViewTask>
             

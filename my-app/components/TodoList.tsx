@@ -10,7 +10,7 @@ interface TodoListProps{
 export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
   return (
     <div className="relative overflow-x-auto max-h-[300px] shadow-md sm:rounded-lg md:block">
-  <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table className="overflow-hidden w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
     {/* head */}
     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>

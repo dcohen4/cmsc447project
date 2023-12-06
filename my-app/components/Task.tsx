@@ -24,7 +24,8 @@ const Task: React.FC<Taskprops> = ({task}) => {
  const [dateToEdit, setdateToEdit] = useState<string>(task.date);
  const [priorityToEdit, setpriorityToEdit] = useState<boolean>(task.priority);
 
-
+ const MAX_CHARACTERS_TASK = 100;
+ const MAX_CHARACTERS_TASKNAME = 23;
 
  const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
 
@@ -55,9 +56,12 @@ const handleDeleteTask = async (id: string) => {
   router.refresh();
   window.location.reload();
 };
- 
+
+const remainingCharacters_TASK = MAX_CHARACTERS_TASK - taskToEdit.length;
+const remainingCharacters_TASKNAME = MAX_CHARACTERS_TASKNAME - taskNameToEdit.length;
+
   return (
-    <tr key = {task.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+    <tr key = {task.id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-MAX_CHARACTERS_TASK even:dark:bg-gray-800 border-b dark:border-gray-700">
     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"></th>
     <td className="px-6 py-4">{task.taskname}</td>
     <td className="px-6 py-4 ">{task.text}</td>
@@ -72,18 +76,38 @@ const handleDeleteTask = async (id: string) => {
               <h3 className="font-bold text-lg mb-1">Please Edit Your Tasks</h3>
               <input
                 value={taskNameToEdit}
-                onChange={(e) => setTaskNameToEdit(e.target.value)}
+                onChange={(e) => {
+                  const text = e.target.value;
+                  if (text.length <= MAX_CHARACTERS_TASKNAME) {
+                    setTaskNameToEdit(text);
+                  } else {
+                    setTaskNameToEdit(text.slice(0, MAX_CHARACTERS_TASKNAME));
+                  }
+                }}
                 type="text"
                 placeholder="Enter Task Name"
                 className={`input input-bordered w-full max-w-xs mb-2`}
               />
+               <div className="pb-4" style={{ fontSize: '0.75rem', color: remainingCharacters_TASKNAME < 0 ? 'red' : 'inherit' }}>
+                {remainingCharacters_TASKNAME}/{MAX_CHARACTERS_TASKNAME} characters remaining
+              </div>
               <input
                 value={taskToEdit}
-                onChange={(e) => setTaskToEdit(e.target.value)}
+                onChange={(e) => {
+                  const text = e.target.value;
+                  if (text.length <= MAX_CHARACTERS_TASK) {
+                    setTaskToEdit(text);
+                  } else {
+                    setTaskToEdit(text.slice(0, MAX_CHARACTERS_TASK));
+                  }
+                }}
                 type="text"
                 placeholder="Notes"
-                className={`input input-bordered input-lg w-full max-w-xs mb-2 `}
+              className={`input input-bordered input-lg w-full max-w-xs mb-2`}
               />
+               <div className="pb-4" style={{ fontSize: '0.75rem', color: remainingCharacters_TASK < 0 ? 'red' : 'inherit' }}>
+                {remainingCharacters_TASK}/{MAX_CHARACTERS_TASK} characters remaining
+              </div>
               <input
                 value={dateToEdit}
                 onChange={(e) => setdateToEdit(e.target.value)}
