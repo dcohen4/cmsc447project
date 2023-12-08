@@ -43,7 +43,7 @@ const Task: React.FC<Taskprops> = ({task}) => {
       
     
     
-    setpriorityToEdit(false);
+    
     setModalOpenEdit(false);
     router.refresh();
     window.location.reload();

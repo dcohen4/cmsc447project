@@ -23,7 +23,13 @@ export const addTodo = async (todo: ITask): Promise<ITask> => {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     // Add the new task to the array
-    tasks.push(todo);
+    if (todo.priority) {
+      // Add the new task to the beginning of the array
+      tasks.unshift(todo);
+    } else {
+      // Add the new task to the end of the array
+      tasks.push(todo);
+    }
 
     // Update local storage with the new tasks
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -48,8 +54,13 @@ export const editTodo = async (todo: ITask): Promise<ITask> => {
     if (index !== -1) {
       tasks[index] = todo;
 
+      const priorityTasks = tasks.filter(task => task.priority);
+      const nonPriorityTasks = tasks.filter(task => !task.priority);
+      const reorderedTasks = [...priorityTasks, ...nonPriorityTasks];
+
+
       // Update local storage with the edited tasks
-      localStorage.setItem('tasks', JSON.stringify(tasks));
+      localStorage.setItem('tasks', JSON.stringify(reorderedTasks));
     }
 
     return todo;
