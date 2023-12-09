@@ -44,11 +44,11 @@ export default function Home() {
             <div><Dropdown></Dropdown> </div>
             <div className='flex pt-8 my-8'>
             
-              <div className="container border-solid border-2 h-auto w-auto pt-8 pl-8 ms-8 w-4/5">
-              <h1 className="text-primary font-bold text-lg">{selectedDate.toDateString()}</h1>
+              <div className="container border-solid border-2 h-auto w-full pt-8 pl-8 ms-8 ">
+              <h1 className="text-primary font-bold text-2xl">{selectedDate.toDateString()}</h1>
                 {tasks.length === 0 ? (
                     
-                    <div className="items-center justify-center h-full h-4/5   flex items-center justify-center text-primary text-5xl">
+                    <div className="items-center justify-center h-full w-full flex items-center justify-center text-primary text-5xl">
                       Nothing to Do? 😴
                     </div>
                 
