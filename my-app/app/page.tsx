@@ -5,71 +5,72 @@ import React, { useEffect, useState } from 'react';
 import { getAllTodos } from "@/api";
 import { TodoList } from "@/components/TodoList";
 import AddTask from "@/components/AddTask";
-import ViewTask from "@/components/ViewTask";
 import Dateshifter from "@/components/Dateshifter";
 import { ITask } from '@/types/types'
+import './globals.css'
+import Dropdown from '@/components/Dropdown';
+import { ThemeProvider } from '@/context/ThemeContext';
+import ClientThemeWrapper from '@/context/ClientThemeWrapper';
+import EditTask from '@/components/ViewTask';
+
 
 
 export default function Home() {
+
   const [selectedDate, setSelectedDate] = useState(new Date());
-  // const [tasks, setTasks] = useState([]);
+
   const [tasks, setTasks] = useState<ITask[]>([]);
 
-//   useEffect(() => {
-//     const fetchTasks = async () => {
-//       const allTasks = await getAllTodos();
-      
-//       const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
-//       const filteredTasks = allTasks.filter(task => 
-//       formatDateOnly(new Date(task.date)) === formatDateOnly(selectedDate)
-      
-// );
-//     console.log(); 
-//       setTasks(filteredTasks);
-//     };
 
-//     fetchTasks();
-//   }, [selectedDate]);
- 
-useEffect(() => {
-  const fetchTasks = async () => {
-    const allTasks = await getAllTodos();
-    
-    const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
-    const filteredTasks = allTasks.filter(task => 
-    formatDateOnly(new Date(task.date + 'T00:00:00Z')) === formatDateOnly(selectedDate)
-    );
-  
-    setTasks(filteredTasks);
-  };
-  fetchTasks();
-}, [selectedDate]);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const allTasks = await getAllTodos();
+
+      const formatDateOnly = (date: Date) => date.toISOString().split('T')[0];
+      const filteredTasks = allTasks.filter(task =>
+        formatDateOnly(new Date(task.date + 'T00:00:00Z')) === formatDateOnly(selectedDate)
+      );
+
+      setTasks(filteredTasks);
+    };
+    fetchTasks();
+  }, [selectedDate]);
 
   return (
-    <main className="max-w-4xl mx-auto mt-15">
-      <div className="text-left my-10 ">
-      
-        
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '25vh' }}>
-      <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
-        <h3 className="font-bold text-lg"></h3>
-        <div style={{ display: 'flex', justifyContent: 'space-between', width: '150%', margin: '150px' }}>
-          
-          <div className='mb-8' style={{ flex: 2, marginRight: '200px' }}>
-          <h1 className="font-bold text-lg">{selectedDate.toDateString()}</h1>
-            <TodoList tasks={tasks} /> {/* Display only tasks for the selected date */}
-          </div>
-
-          <div className='grid justify-evenly grid-cols-2 gap-16 '>
-            <AddTask></AddTask>
-            <ViewTask></ViewTask>
+    <main >
+      <ThemeProvider>
+        <ClientThemeWrapper>
+          <div className="h-screen">
+            <div><Dropdown></Dropdown> </div>
+            <div className='flex pt-8 my-8'>
             
+              <div className="container border-solid border-2 h-auto w-auto pt-8 pl-8 ms-8 w-4/5">
+              <h1 className="text-primary font-bold text-lg">{selectedDate.toDateString()}</h1>
+                {tasks.length === 0 ? (
+                    
+                    <div className="items-center justify-center h-full h-4/5   flex items-center justify-center text-primary text-5xl">
+                      Nothing to Do? 😴
+                    </div>
+                
+                ) : (
+                  <TodoList tasks={tasks}></TodoList>
+                )}
+              </div>
+
+              <div className='justify-items-center content-center place-content-evenly space-y-6 mx-8'>
+                  <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
+                  <AddTask></AddTask>
+                  <EditTask></EditTask>
+              </div>
+                  
+
+            </div>
 
           </div>
-        </div>
-      </div>
+        </ClientThemeWrapper>
+      </ThemeProvider>
     </main>
   )
 }
+
+

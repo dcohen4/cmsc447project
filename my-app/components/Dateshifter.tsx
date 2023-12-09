@@ -33,8 +33,8 @@ const Dateshifter = ({ onDateChange }: DateshifterProps) => {
     <div>
       
       <div className="flex space-x-8">
-      <button className = 'btn hover:bg-slate-800' onClick={decrementDay}>Previous Day</button>
-      <button className = 'btn hover:bg-slate-800' onClick={incrementDay}>Next Day</button>
+      <button className = 'btn hover-primary' onClick={decrementDay}>Previous Day</button>
+      <button className = 'btn hover' onClick={incrementDay}>Next Day</button>
       </div>
     </div>
   );
