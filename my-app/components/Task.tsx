@@ -119,7 +119,7 @@ const remainingCharacters_TASKNAME = MAX_CHARACTERS_TASKNAME - taskNameToEdit.le
               <div className="form-control">
                 <label className="label cursor-pointer">
                   <span className="label-text pr-4">Priority?</span>
-                  <input type="checkbox" onChange={(e) => setpriorityToEdit(e.target.checked)} className="toggle" />
+                  <input type="checkbox" checked={priorityToEdit} onChange={(e) => setpriorityToEdit(e.target.checked)} className="toggle" />
                 </label>
               </div>
             </div>
