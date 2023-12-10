@@ -12,6 +12,9 @@ import Dropdown from '@/components/Dropdown';
 import { ThemeProvider } from '@/context/ThemeContext';
 import ClientThemeWrapper from '@/context/ClientThemeWrapper';
 import EditTask from '@/components/ViewTask';
+import SnowComponent from '@/components/SnowComponent';
+
+
 
 
 
@@ -36,12 +39,20 @@ export default function Home() {
     fetchTasks();
   }, [selectedDate]);
 
+  
+
   return (
+    
     <main >
+
+
       <ThemeProvider>
         <ClientThemeWrapper>
           <div className="h-screen">
-            <div><Dropdown></Dropdown> </div>
+          
+            <div><Dropdown></Dropdown>  </div>
+           
+            
             <div className='flex pt-8 my-8'>
             
               <div className="container border-solid border-2 h-auto w-full pt-8 pl-8 ms-8 ">
@@ -50,6 +61,9 @@ export default function Home() {
                     
                     <div className="items-center justify-center h-full w-full flex items-center justify-center text-primary text-5xl">
                       Nothing to Do? 😴
+                      
+
+                     
                     </div>
                 
                 ) : (
@@ -58,17 +72,21 @@ export default function Home() {
               </div>
 
               <div className='justify-items-center content-center place-content-evenly space-y-6 mx-8'>
-                  <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
+                 
+                 <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
                   <AddTask></AddTask>
                   <EditTask></EditTask>
+                 
+                  
               </div>
                   
 
             </div>
-
+            
           </div>
         </ClientThemeWrapper>
       </ThemeProvider>
+    <SnowComponent/>
     </main>
   )
 }

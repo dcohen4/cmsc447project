@@ -10,7 +10,7 @@ interface TodoListProps{
 export const TodoList: React.FC<TodoListProps> = ({tasks}) => {
   return (
     <div className="relative hover:border-double overflow-x-auto max-h-[700px] shadow-xl sm:rounded-lg md:block">
-    <table className="overflow-hidden w-full text-sm text-left rtl:text-right ">
+    <table className="overflow-hidden w-full text-sm text-left rtl:text-right  ">
     {/* head */}
     <thead className="text-xs uppercase">
       <tr>
