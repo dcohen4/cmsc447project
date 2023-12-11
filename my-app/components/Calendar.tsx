@@ -6,10 +6,26 @@ import Dateshifter from './Dateshifter';
 import Page from '../app/page';
 
 interface CalendarProps {
+<<<<<<< Updated upstream
   onDateClick: (date: Date) => void;
   setCurrentDate: (date: Date) => void; 
 }
 
+=======
+<<<<<<< HEAD
+  onDateClick: (date: Date) => void; // Accepts a Date argument
+}
+
+const Calendar: React.FC<CalendarProps> = ({ onDateClick }) => {
+  const handleDateClick = (arg: { date: Date }) => { // Adjust the argument to match Date type
+    console.log('Date clicked:', arg.date);
+    onDateClick(arg.date); // Notify the parent component about the date click with the Date argument
+=======
+  onDateClick: (date: Date) => void;
+  setCurrentDate: (date: Date) => void; 
+}
+
+>>>>>>> Stashed changes
 
 const Calendar: React.FC<CalendarProps> = ({ onDateClick, setCurrentDate }) => {
   const handleDateClick = (arg: { dateStr: any; }) => {
@@ -21,6 +37,10 @@ const Calendar: React.FC<CalendarProps> = ({ onDateClick, setCurrentDate }) => {
 
     console.log("setCurrentDate in Calendar:", setCurrentDate);
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> 8b265c6636f8abe9cd9fe3d142a3fa73578f2ab3
+>>>>>>> Stashed changes
   };
   
 
