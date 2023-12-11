@@ -64,7 +64,7 @@ export default function Home() {
                 <AddTask />
                 <EditTask onDateSelect={handleSelectedDate} />
                
-                {calendarDate && <p>Selected Date: {calendarDate.toDateString()}</p>}
+                
               </div>
             </div>
           </div>
