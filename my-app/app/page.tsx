@@ -6,7 +6,6 @@ import { TodoList } from "@/components/TodoList";
 import AddTask from "@/components/AddTask";
 import Dateshifter from "@/components/Dateshifter";
 import { ITask } from '@/types/types';
-
 import './globals.css';
 import Dropdown from '@/components/Dropdown';
 import { ThemeProvider } from '@/context/ThemeContext';
@@ -15,6 +14,9 @@ import EditTask from '@/components/ViewTask';
 import SnowComponent from '@/components/SnowComponent';
 
 export default function Home() {
+
+  
+
   const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [calendarDate, setCalendarDate] = useState<Date | null>(null);
@@ -49,10 +51,10 @@ export default function Home() {
           <div className="h-screen">
             <div><Dropdown /></div>
             <div className='flex pt-8 my-8'>
-              <div className="container border-solid border-2 h-auto w-full pt-8 pl-8 ms-8 ">
+              <div className="container border-solid border-2 h-auto w-full pt-8 pl-8 ms-8 border-secondary">
                 <h1 className="text-primary font-bold text-2xl">{selectedDate.toDateString()}</h1>
                 {tasks.length === 0 ? (
-                  <div className="items-center justify-center h-full w-full flex items-center justify-center text-primary text-5xl">
+                  <div className="items-center h-full w-full flex justify-center text-primary text-5xl">
                     Nothing to Do? 😴
                   </div>
                 ) : (

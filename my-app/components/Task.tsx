@@ -23,6 +23,7 @@ const Task: React.FC<Taskprops> = ({task}) => {
  const [taskNameToEdit, setTaskNameToEdit] = useState<string>(task.taskname);
  const [dateToEdit, setdateToEdit] = useState<string>(task.date);
  const [priorityToEdit, setpriorityToEdit] = useState<boolean>(task.priority);
+ const [completeToEdit, setcompleteToEdit] = useState<boolean>(task.complete);
 
  const MAX_CHARACTERS_TASK = 100;
  const MAX_CHARACTERS_TASKNAME = 23;
@@ -35,6 +36,7 @@ const Task: React.FC<Taskprops> = ({task}) => {
       text: taskToEdit,
       taskname: taskNameToEdit,
       date: dateToEdit,
+      complete: completeToEdit,
       priority: priorityToEdit
     });
     
@@ -61,7 +63,7 @@ const remainingCharacters_TASK = MAX_CHARACTERS_TASK - taskToEdit.length;
 const remainingCharacters_TASKNAME = MAX_CHARACTERS_TASKNAME - taskNameToEdit.length;
 
   return (
-    <tr key = {task.id} className="">
+    <tr key = {task.id} className={task.complete ? 'bg-success text-neutral' : task.priority ? ' text-secondary text-bold text-lg' : ''}>
     <th scope="row" className="px-6 py-4 font-medium  whitespace-nowrap "></th>
     <td className="px-6 py-4">{task.taskname}</td>
     <td className="px-6 py-4 ">{task.text}</td>
@@ -116,12 +118,17 @@ const remainingCharacters_TASKNAME = MAX_CHARACTERS_TASKNAME - taskNameToEdit.le
               />
             </div>
             <div>
-              <div className="form-control">
-                <label className="label cursor-pointer">
-                  <span className="label-text pr-4">Priority?</span>
-                  <input type="checkbox" checked={priorityToEdit} onChange={(e) => setpriorityToEdit(e.target.checked)} className="toggle" />
-                </label>
-              </div>
+            <div className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text pr-4">Priority?</span>
+                    <input type="checkbox" checked={priorityToEdit} onChange={(e) => setpriorityToEdit(e.target.checked)} className="toggle" />
+                  </label>
+                  <label className="label cursor-pointer">
+                    <span className="label-text pr-4">Complete?</span>
+                    <input type="checkbox" checked={completeToEdit} onChange={(e) => setcompleteToEdit(e.target.checked)} className="toggle" />
+                  </label>
+                </div>
+
             </div>
           </div>
           <div className=" content-evenly pt-6">

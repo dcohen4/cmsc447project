@@ -3,5 +3,6 @@ export interface ITask{
     taskname: string;
     text:string;
     priority:boolean;
+    complete: boolean;
     date: string;
 } 
