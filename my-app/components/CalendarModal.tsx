@@ -5,6 +5,8 @@ interface ModalProps {
   modalOpen: boolean;
   setModalOpen: (open: boolean) => void;
   onDateSelect: (date: Date) => void; // Define prop for date selection
+  children?: React.ReactNode;
+
 }
 
 const CalendarModal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, onDateSelect }) => {

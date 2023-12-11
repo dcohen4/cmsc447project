@@ -13,7 +13,7 @@ import ClientThemeWrapper from '@/context/ClientThemeWrapper';
 import EditTask from '@/components/ViewTask';
 import SnowComponent from '@/components/SnowComponent';
 
-export default function Home() {
+export default function Page() {
 
   
 
@@ -72,7 +72,7 @@ export default function Home() {
           </div>
         </ClientThemeWrapper>
       </ThemeProvider>
-      <SnowComponent />
+      {/* <SnowComponent /> */}
     </main>
   )
 }
