@@ -12,36 +12,14 @@ import Dropdown from '@/components/Dropdown';
 import { ThemeProvider } from '@/context/ThemeContext';
 import ClientThemeWrapper from '@/context/ClientThemeWrapper';
 import EditTask from '@/components/ViewTask';
-import CalendarModal from '@/components/CalendarModal';
-import Calendar from '@/components/Calendar';
 import SnowComponent from '@/components/SnowComponent';
 
 export default function Home() {
-<<<<<<< Updated upstream
-  const [modalOpen, setModalOpen] = useState(false);
-const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
-// const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
-
-  console.log("setSelectedDate in Home:", setSelectedDate);
-  
-=======
-<<<<<<< HEAD
-  const [selectedDate, setSelectedDate] = useState(new Date());
-=======
-  const [modalOpen, setModalOpen] = useState(false);
-const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
-// const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
->>>>>>> Stashed changes
-
-  console.log("setSelectedDate in Home:", setSelectedDate);
-  
-
->>>>>>> 8b265c6636f8abe9cd9fe3d142a3fa73578f2ab3
+  const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
   const [tasks, setTasks] = useState<ITask[]>([]);
   const [calendarDate, setCalendarDate] = useState<Date | null>(null);
 
   useEffect(() => {
-    console.log("In Home, selectedDate:", selectedDate);
     const fetchTasks = async () => {
       const allTasks = await getAllTodos();
 
@@ -58,18 +36,12 @@ const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('
     fetchTasks();
   }, [selectedDate]);
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
   const handleSelectedDate = (date: Date) => {
     setCalendarDate(date); 
     setSelectedDate(date); 
   };
 
 
-=======
->>>>>>> 8b265c6636f8abe9cd9fe3d142a3fa73578f2ab3
->>>>>>> Stashed changes
   return (
     <main>
       <ThemeProvider>
@@ -88,23 +60,11 @@ const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('
                 )}
               </div>
               <div className='justify-items-center content-center place-content-evenly space-y-6 mx-8'>
-<<<<<<< Updated upstream
-                  <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
-                  <AddTask></AddTask>
-                  <EditTask></EditTask>
-=======
-<<<<<<< HEAD
                 <Dateshifter onDateChange={(date) => setSelectedDate(date)} />
                 <AddTask />
                 <EditTask onDateSelect={handleSelectedDate} />
                
                 {calendarDate && <p>Selected Date: {calendarDate.toDateString()}</p>}
-=======
-                  <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
-                  <AddTask></AddTask>
-                  <EditTask></EditTask>
->>>>>>> 8b265c6636f8abe9cd9fe3d142a3fa73578f2ab3
->>>>>>> Stashed changes
               </div>
             </div>
           </div>
