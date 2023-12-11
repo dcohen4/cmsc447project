@@ -12,6 +12,8 @@ import Dropdown from '@/components/Dropdown';
 import { ThemeProvider } from '@/context/ThemeContext';
 import ClientThemeWrapper from '@/context/ClientThemeWrapper';
 import EditTask from '@/components/ViewTask';
+import CalendarModal from '@/components/CalendarModal';
+import Calendar from '@/components/Calendar';
 import SnowComponent from '@/components/SnowComponent';
 
 
@@ -19,13 +21,18 @@ import SnowComponent from '@/components/SnowComponent';
 
 
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false);
+const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
+// const [selectedDate, setSelectedDate] = useState(new Date(localStorage.getItem('selectedDate') || Date.now()));
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  console.log("setSelectedDate in Home:", setSelectedDate);
+  
 
   const [tasks, setTasks] = useState<ITask[]>([]);
 
 
   useEffect(() => {
+    console.log("In Home, selectedDate:", selectedDate);
     const fetchTasks = async () => {
       const allTasks = await getAllTodos();
 
@@ -33,13 +40,14 @@ export default function Home() {
       const filteredTasks = allTasks.filter(task =>
         formatDateOnly(new Date(task.date + 'T00:00:00Z')) === formatDateOnly(selectedDate)
       );
+      console.log("Selected Date in Home:", selectedDate);
+
+      localStorage.setItem('selectedDate', selectedDate.toString());
 
       setTasks(filteredTasks);
     };
     fetchTasks();
   }, [selectedDate]);
-
-  
 
   return (
     
@@ -72,12 +80,9 @@ export default function Home() {
               </div>
 
               <div className='justify-items-center content-center place-content-evenly space-y-6 mx-8'>
-                 
-                 <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
+                  <Dateshifter  onDateChange={(date) => setSelectedDate(date)} />
                   <AddTask></AddTask>
                   <EditTask></EditTask>
-                 
-                  
               </div>
                   
 
