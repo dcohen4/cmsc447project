@@ -75,10 +75,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import TaskPage from './page';
+import { ThemeProvider } from '@/context/ThemeContext';
+import ClientThemeWrapper from '@/context/ClientThemeWrapper';
+import Dropdown from '@/components/Dropdown';
+import Tutorial from '@/components/Tutorial';
 
 const HomePage: React.FC = () => {
   return (
-<div className="flex flex-col items-center justify-center h-screen bg-white">
+    <ThemeProvider>
+    <ClientThemeWrapper>
+    
+    <div className=""><Dropdown /> </div>
+   
+    
+<div className="flex flex-col items-center justify-center h-screen">
   <div className="text-center">
     <div className="flex justify-center items-center mb-4">
       <img src="/cal.png" alt="Logo" />
@@ -93,7 +103,11 @@ const HomePage: React.FC = () => {
       </button>
     </Link>
   </div>
-</div>
+  </div>
+
+</ClientThemeWrapper>
+      </ThemeProvider>
+
   );
 };
 
