@@ -63,7 +63,7 @@ const remainingCharacters_TASK = MAX_CHARACTERS_TASK - taskToEdit.length;
 const remainingCharacters_TASKNAME = MAX_CHARACTERS_TASKNAME - taskNameToEdit.length;
 
   return (
-    <tr key = {task.id} className={task.complete ? 'bg-success text-neutral' : task.priority ? ' text-secondary text-bold text-lg' : ''}>
+    <tr key = {task.id} className={task.complete ? 'bg-success text-neutral' : task.priority ? ' text-secondary text-bold' : ''}>
     <th scope="row" className="px-6 py-4 font-medium  whitespace-nowrap "></th>
     <td className="px-6 py-4">{task.taskname}</td>
     <td className="px-6 py-4 ">{task.text}</td>
