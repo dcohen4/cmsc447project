@@ -54,9 +54,11 @@ export const editTodo = async (todo: ITask): Promise<ITask> => {
     if (index !== -1) {
       tasks[index] = todo;
 
-      const priorityTasks = tasks.filter(task => task.priority);
-      const nonPriorityTasks = tasks.filter(task => !task.priority);
-      const reorderedTasks = [...priorityTasks, ...nonPriorityTasks];
+      const completedTasks = tasks.filter(task => task.complete); 
+      const priorityTasks = tasks.filter(task => task.priority && !task.complete);
+      const nonPriorityTasks = tasks.filter(task => !task.priority && !task.complete);
+      
+      const reorderedTasks = [...priorityTasks, ...nonPriorityTasks, ...completedTasks];
 
 
       // Update local storage with the edited tasks
