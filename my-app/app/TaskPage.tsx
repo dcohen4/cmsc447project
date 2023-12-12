@@ -49,7 +49,7 @@ export default function Page() {
       <ThemeProvider>
         <ClientThemeWrapper>
           <div className="h-screen">
-            <div><Dropdown /></div>
+            <Dropdown />
             <div className='flex pt-8 my-8'>
               <div className="container border-solid border-2 h-auto w-full pt-8 pl-8 ms-8 border-secondary">
                 <h1 className="text-primary font-bold text-2xl">{selectedDate.toDateString()}</h1>
