@@ -2,7 +2,7 @@ Welcome to our Task Management Web App!
 
 
 ### To Run
-``Pull Repo```
+```Pull Repo```
 
 
 ### Backend
