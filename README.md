@@ -1,6 +1,10 @@
 Welcome to our Task Management Web App!
 
 
+### To Run
+``Pull Repo```
+
+
 ### Backend
 
 Install dependencies:
